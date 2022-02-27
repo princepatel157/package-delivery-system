@@ -2,3 +2,73 @@
   display: flex;
   justify-content: center;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: baseline;
+  border: 3px solid whitesmoke;
+}
+
+.form-group {
+  margin: 5px;
+}
+
+.line {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0;
+  // justify-content: space-between;
+}
+
+.line div {
+  margin: 5px;
+}
+
+.parcel-type {
+  margin-right: 5px;
+  padding-bottom: 5px;
+}
+.parcel-type select {
+  margin-left: 10px;
+  font-size: 20px;
+  border-radius: 4px;
+  border: 2px solid rgb(201, 201, 201);
+}
+
+input {
+  border: 2px solid rgb(201, 201, 201);
+  border-radius: 4px;
+  // font-size: 1rem;
+  width: 5rem;
+}
+
+.addr {
+  display: flex;
+  flex-direction: column;
+}
+.addr div {
+  margin-bottom: 5px;
+}
+.addr div input {
+  width: 90%;
+}
+.addr .pin input {
+  width: 30%;
+}
+.addr .pin {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.addr .pin .city {
+  width: 60%;
+}

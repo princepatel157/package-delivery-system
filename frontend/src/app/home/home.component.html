@@ -8,16 +8,93 @@
     <!-- form -->
     <div class="col-xs-12">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-xs-6 col-sm-4">Parcel Type:</div>
-          <div class="col-xs-6 col-sm-4">
-            <select name="cat" id="cat">
-              <option value="light">Light</option>
-              <option value="heavy">Heavy</option>
-              <option value="glass-item">Glass Item</option>
-              <option value="documents">Documents</option>
-            </select>
-          </div>
+        <div class="row">
+          <form class="form py-4">
+            <!-- parcel detail -->
+            <div class="form-group parcel-type">
+              Type of Parcel:
+              <select name="cat" id="cat">
+                <option value="light">Light</option>
+                <option value="heavy">Heavy</option>
+                <option value="glass-item">Glass Item</option>
+                <option value="documents">Documents</option>
+              </select>
+            </div>
+            <div class="form-group line">
+              <div>
+                Weight:
+                <input type="text" name="weight(in kg)" #weight />
+              </div>
+              <div>
+                Dimention(lxb):
+                <input type="text" name="dimention" #dimention />
+              </div>
+            </div>
+            <div class="form-group">
+              Upload Image: <button class="btn btn-primary">upload</button>
+            </div>
+            <br />
+
+            <!-- Pickup Address form -->
+            <div class="form-group addr">
+              <span>Pickup Address: </span>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Address Line 1"
+                  class=""
+                  name="Address"
+                  #address
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Address Line 2"
+                  name="Address"
+                  #address
+                />
+              </div>
+              <div class="pin">
+                <div>
+                  City: <input type="text" class="city" name="city" #city />
+                </div>
+                <div>
+                  Pincode: <input type="text #pincode" name="pincode" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Drop Address form -->
+            <div class="form-group addr">
+              <span>Drop Address: </span>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Address Line 1"
+                  class=""
+                  name="Address"
+                  #address
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Address Line 2"
+                  name="Address"
+                  #address
+                />
+              </div>
+              <div class="pin">
+                <div>
+                  City: <input type="text" class="city" name="city" #city />
+                </div>
+                <div>
+                  Pincode: <input type="text #pincode" name="pincode" />
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
