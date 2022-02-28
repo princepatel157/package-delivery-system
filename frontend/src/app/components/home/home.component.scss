@@ -1,38 +1,53 @@
+parcel-detail {
+  background-image: url("https://picsum.photos/seed/picsum/1600/600");
+  background-repeat: no-repeat;
+}
+
+// home container heading
 .con-head {
   display: flex;
   justify-content: center;
 }
 
+// form container
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+// form flow
 .form {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   padding: 20px;
   justify-content: baseline;
-  border: 3px solid whitesmoke;
+  border: 2px solid rgb(185, 181, 181);
 }
 
+@media (min-width: 762px) {
+  .form {
+    padding: 60px;
+  }
+}
+
+// fields for single line
 .form-group {
   margin: 5px;
 }
 
+// line vise flow using flex wrap
 .line {
   display: flex;
   flex-wrap: wrap;
   margin-left: 0;
-  // justify-content: space-between;
 }
-
 .line div {
   margin: 5px;
 }
 
+// drow down edit
 .parcel-type {
   margin-right: 5px;
   padding-bottom: 5px;
@@ -44,6 +59,7 @@
   border: 2px solid rgb(201, 201, 201);
 }
 
+// designing input fields
 input {
   border: 2px solid rgb(201, 201, 201);
   border-radius: 4px;
@@ -51,6 +67,7 @@ input {
   width: 5rem;
 }
 
+// editing address form
 .addr {
   display: flex;
   flex-direction: column;
@@ -59,7 +76,7 @@ input {
   margin-bottom: 5px;
 }
 .addr div input {
-  width: 90%;
+  width: 100%;
 }
 .addr .pin input {
   width: 30%;
@@ -71,4 +88,9 @@ input {
 }
 .addr .pin .city {
   width: 60%;
+}
+
+// next button to float right
+.proceed-btn {
+  float: right;
 }
