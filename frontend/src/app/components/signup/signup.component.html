@@ -6,34 +6,52 @@
     <!-- right column for sign-up -->
     <div class="container p-2 col-md-6 col-xs-12 right">
       <!-- form -->
+
+      <!-- STEP-5 -->
       <form
-        #simpleForm="ngForm"
-        (ngSubmit)="getRegisterValues(simpleForm.value)"
+        #signUpForm="ngForm"
+        (ngSubmit)="onSubmit(signUpForm)"
         class="form py-3 px-4"
       >
         <h4>Register Here -</h4>
         <input
-          ngModel
           type="text"
-          #username
+          #username="ngModel"
           name="username"
+          [(ngModel)]="userService.selectedUser.username"
           placeholder="username"
+          required
+          [ngClass]="{
+            'invalid-textbox': signUpForm.submitted && !username.valid
+          }"
         />
         <br />
-        <input ngModel type="text" #email name="email" placeholder="email" />
+        <input
+          type="text"
+          #email="ngModel"
+          [(ngModel)]="userService.selectedUser.email"
+          name="email"
+          placeholder="email"
+        />
         <br />
-        <input ngModel type="number" #phone name="phone" placeholder="phone" />
+        <input
+          #phone="ngModel"
+          [(ngModel)]="userService.selectedUser.phone"
+          type="number"
+          name="phone"
+          placeholder="phone"
+        />
         <!-- <input type="number" #otp name="otp" placeholder="otp" /> -->
         <br />
         <input
-          ngModel
+          #password="ngModel"
+          [(ngModel)]="userService.selectedUser.password"
           type="password"
-          #password
           name="password"
           placeholder="password"
         />
         <br />
-        <button class="px-2 mt-4">Sign Up</button>
+        <button type="submit" class="px-2 mt-4">Sign Up</button>
       </form>
     </div>
   </div>

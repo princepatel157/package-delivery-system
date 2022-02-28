@@ -13,8 +13,8 @@ router.get("/", (req, res) => {
 
 // register router page
 router.post("/register", async (req, res) => {
-  const { name, username, email, phone, password } = req.body;
-  if (!name || !username || !email || !phone || !password) {
+  const { username, email, phone, password } = req.body;
+  if (!username || !email || !phone || !password) {
     return res.status(422).json({ error: "all fields required" });
   }
   try {
@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
     if (userExist) {
       return res.status(422).json({ error: "user Exist" });
     }
-    const user = new User({ name, username, email, phone, password });
+    const user = new User({ username, email, phone, password });
     const userRegister = await user.save();
     if (userRegister) {
       return res.status(201).json({ message: "registered succesfully" });

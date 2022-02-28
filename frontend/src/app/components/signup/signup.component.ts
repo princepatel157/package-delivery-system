@@ -1,24 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
+  providers: [UserService],
 })
 export class SignupComponent implements OnInit {
-  constructor() {}
+  // STEP-4
+  constructor(public userService: UserService) {}
 
-  // sign up values
-  username = '';
-  email = '';
-  phone = '';
-  password = '';
-  getRegisterValues(val: any) {
-    this.username = val.username;
-    this.email = val.email;
-    this.phone = val.phone;
-    this.password = val.password;
-  }
-
+  showMessage: boolean = true;
   ngOnInit(): void {}
+
+  // STEP-6
+  // getting post request to the server with form details
+  onSubmit(form: NgForm) {
+    this.userService.postUser(form.value).subscribe(
+      (res) => {
+        window.alert('success');
+      },
+      (err) => {
+        window.alert('failed');
+        // resetForm(form);
+      }
+    );
+  }
 }
