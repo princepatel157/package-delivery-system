@@ -52,7 +52,7 @@ router.post("/signin", async (req, res) => {
       let token = await userLogin.generateAuthToken();
 
       console.log("Token: ", token);
-      res.cookie("jwtoken", token, {
+      res.cookie("token", token, {
         expires: new Date(Date.now() + 2589000000),
         httpOnly: true,
       });
@@ -60,7 +60,7 @@ router.post("/signin", async (req, res) => {
       if (!matchPass) {
         res.status(400).json({ message: "wrong credential" });
       } else {
-        res.json({ message: `${userLogin.name} logged-in succesfully` });
+        res.json({ message: `${userLogin.username} logged-in succesfully` });
         console.log(userLogin.name);
       }
     } else {
@@ -72,7 +72,7 @@ router.post("/signin", async (req, res) => {
 });
 
 // middleware
-router.get("/getInfo", authenticate, (req, res) => {
+router.get("/auth", authenticate, (req, res) => {
   res.send("middleware");
   res.send(req.rootUser);
 });

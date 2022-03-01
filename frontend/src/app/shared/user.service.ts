@@ -23,10 +23,11 @@ export class UserService {
     return this.http.post(environment.apiBaseUrl + '/register', user);
   }
 
-  login(authCredentials:any) {
-    return this.http.post(environment.apiBaseUrl + '/signin', authCredentials);
+  //login function
+  login(authCredentials: any) {
+    return this.http.post(environment.apiBaseUrl + '/login', authCredentials);
   }
-  setToken(token:string){
-    localStorage.setItem('token',token);
+  setToken(token: string) {
+    localStorage.setItem('token', token);
   }
 }

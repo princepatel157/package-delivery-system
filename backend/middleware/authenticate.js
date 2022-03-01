@@ -20,7 +20,7 @@ const authenticate = async (req, res, next) => {
 
     next();
   } catch (err) {
-    res.status(401).send("login req");
+    res.status(401).send("login required");
     console.log(err);
   }
 };

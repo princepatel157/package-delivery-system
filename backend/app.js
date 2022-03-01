@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const User = require("./models/userSchema");
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
 
 // require dotenv and db conn
 const dotenv = require("dotenv");

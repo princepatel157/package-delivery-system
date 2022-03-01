@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'src/app/shared/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { UserService } from 'src/app/shared/user.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   model = {
     username: '',
@@ -18,7 +19,9 @@ export class LoginComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.userService.login(form.value).subscribe(
-      (res) => {},
+      (res) => {
+        // this.userService.setToken(res['token']);
+      },
       (err) => {}
     );
   }

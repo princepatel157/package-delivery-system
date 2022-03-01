@@ -32,3 +32,25 @@
 ## Database Collection
 
 <img src="./img/dbcollection.JPG">
+
+## Testing Backend API
+
+## Sign-up
+
+<img src="./img/signup-test-api.JPG">
+
+## Sign-up Error
+
+<img src="./img/signup-api-test-error.JPG">
+
+## Sign-in
+
+<img src="./img/signin-api-test.JPG">
+
+## Sign-in Error
+
+<img src="./img/signin-api-test-error.JPG">
+
+## Saving Json-web token as a cookie
+
+<img src="./img/cookie.JPG">
