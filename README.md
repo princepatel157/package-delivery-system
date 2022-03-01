@@ -28,3 +28,7 @@
 ## Database
 
 <img src="./img/db.JPG">
+
+## Database Collection
+
+<img src="./img/dbcollection.JPG">
