@@ -22,4 +22,11 @@ export class UserService {
   postUser(user: User) {
     return this.http.post(environment.apiBaseUrl + '/register', user);
   }
+
+  login(authCredentials:any) {
+    return this.http.post(environment.apiBaseUrl + '/signin', authCredentials);
+  }
+  setToken(token:string){
+    localStorage.setItem('token',token);
+  }
 }

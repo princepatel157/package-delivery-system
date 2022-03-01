@@ -6,7 +6,6 @@ import { UserService } from 'src/app/shared/user.service';
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
-  providers: [UserService],
 })
 export class SignupComponent implements OnInit {
   // STEP-4

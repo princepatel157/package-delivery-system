@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FormsModule } from '@angular/forms';
+import { UserService } from './shared/user.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { FormsModule } from '@angular/forms';
     NgbModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
