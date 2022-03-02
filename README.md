@@ -54,3 +54,7 @@
 ## Saving Json-web token as a cookie
 
 <img src="./img/cookie.JPG">
+
+## Cost estimation with respect to weight and parcel type
+
+<img src="./img/cost.JPG">
