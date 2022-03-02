@@ -43,8 +43,10 @@
                 class="upload-btn"
                 type="file"
                 id="myFile"
+                (change)="onFileSelect($event)"
                 name="filename"
               />
+              <span>{{ fileName }}</span>
             </div>
             <br />
 

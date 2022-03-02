@@ -13,6 +13,12 @@ export class HomeComponent implements OnInit {
   weightMargin = 30;
   additionalCost = 0;
   totalCost = 0;
+  fileName = null;
+
+  onFileSelect(event: any) {
+    console.log(event);
+    this.fileName = event.target.files[0]['name'];
+  }
 
   calCost(ptype: string, weight: any) {
     // initialize to zero
@@ -38,10 +44,10 @@ export class HomeComponent implements OnInit {
 
   // get ngform detail
   getParcelData(form: any) {
-    // this.parcelType = form.ptype;
-    // this.parcelWeight = form.weight;
-    // console.log(this.parcelType);
-    // console.log(this.parcelWeight);
+    this.parcelType = form.ptype;
+    this.parcelWeight = form.weight;
+    console.log(this.parcelType);
+    console.log(this.parcelWeight);
   }
   ngOnInit(): void {}
 }
