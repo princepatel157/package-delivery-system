@@ -9,11 +9,15 @@
     <div class="col-xs-12">
       <div class="container">
         <div class="row">
-          <form class="form py-4 mb-4">
+          <form
+            class="form py-4 mb-4"
+            #simpleform="ngForm"
+            (ngSubmit)="getParcelData(simpleform.value)"
+          >
             <!-- parcel detail -->
             <div class="form-group parcel-type">
               Type of Parcel:
-              <select name="cat" id="cat">
+              <select name="ptype" #ptype ngModel>
                 <option value="light">Light</option>
                 <option value="heavy">Heavy</option>
                 <option value="glass-item">Glass Item</option>
@@ -24,12 +28,12 @@
             <!-- parcel dimention and weight -->
             <div class="form-group line">
               <div>
-                Weight:
-                <input type="text" name="weight(in kg)" #weight />
+                Weight(in kg):
+                <input type="number" name="weight" #weight ngModel />
               </div>
               <div>
                 Dimention(lxb):
-                <input type="text" name="dimention" #dimention />
+                <input type="text" name="dimention" #dimention ngModel />
               </div>
             </div>
             <div class="form-group">
@@ -42,6 +46,7 @@
               <span>Pickup Address: </span>
               <div>
                 <input
+                  ngModel
                   type="text"
                   placeholder="Address Line 1"
                   class=""
@@ -51,6 +56,7 @@
               </div>
               <div>
                 <input
+                  ngModel
                   type="text"
                   placeholder="Address Line 2"
                   name="Address"
@@ -59,10 +65,11 @@
               </div>
               <div class="pin">
                 <div>
-                  City: <input type="text" class="city" name="city" #city />
+                  City:
+                  <input type="text" class="city" name="city" #city ngModel />
                 </div>
                 <div>
-                  Pincode: <input type="text #pincode" name="pincode" />
+                  Pincode: <input type="text #pincode" name="pincode" ngModel />
                 </div>
               </div>
             </div>
@@ -72,6 +79,7 @@
               <span>Drop Address: </span>
               <div>
                 <input
+                  ngModel
                   type="text"
                   placeholder="Address Line 1"
                   class=""
@@ -81,6 +89,7 @@
               </div>
               <div>
                 <input
+                  ngModel
                   type="text"
                   placeholder="Address Line 2"
                   name="Address"
@@ -89,17 +98,25 @@
               </div>
               <div class="pin">
                 <div>
-                  City: <input type="text" class="city" name="city" #city />
+                  City:
+                  <input ngModel type="text" class="city" name="city" #city />
                 </div>
                 <div>
-                  Pincode: <input type="text #pincode" name="pincode" />
+                  Pincode: <input ngModel type="text #pincode" name="pincode" />
                 </div>
               </div>
             </div>
             <div class="proceed">
-              <button class="btn btn-primary mt-4">Calculate Cost</button>
-              <span class="p-2 pt-2"> Rs. 00.00</span>
-              <button class="btn btn-success proceed-btn mt-4">Proceed</button>
+              <button
+                (click)="calCost(ptype.value, weight.value)"
+                class="btn btn-primary mt-4"
+              >
+                Calculate Cost
+              </button>
+              <span class="p-2 pt-2"> Rs. {{ totalCost }}</span>
+              <button type="submit" class="btn btn-success proceed-btn mt-4">
+                Proceed
+              </button>
             </div>
           </form>
         </div>
