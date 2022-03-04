@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'src/app/shared/user.service';
+import axios from 'axios';
 
 @Component({
   selector: 'app-signup',
@@ -9,22 +10,32 @@ import { UserService } from 'src/app/shared/user.service';
 })
 export class SignupComponent implements OnInit {
   // STEP-4
-  constructor(public userService: UserService) {}
+  constructor() {}
+  username = '';
+  email = '';
+  phone = '';
+  password = '';
 
   showMessage: boolean = true;
   ngOnInit(): void {}
 
   // STEP-6
   // getting post request to the server with form details
-  onSubmit(form: NgForm) {
-    this.userService.postUser(form.value).subscribe(
-      (res) => {
-        window.alert('success');
-      },
-      (err) => {
-        window.alert('failed');
-        // resetForm(form);
-      }
-    );
+  onSubmit(val: any) {
+    this.username = val.username;
+    this.email = val.email;
+    this.phone = val.phone;
+    this.password = val.password;
+
+    axios
+      .post('http://localhost:3000/api/register', {
+        username: this.username,
+        email: this.email,
+        phone: this.phone,
+        password: this.password,
+      })
+      .then((res) => {
+        window.alert('successfully registerd');
+      });
   }
 }

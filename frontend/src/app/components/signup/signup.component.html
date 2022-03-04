@@ -10,33 +10,24 @@
       <!-- STEP-5 -->
       <form
         #signUpForm="ngForm"
-        (ngSubmit)="onSubmit(signUpForm)"
+        (ngSubmit)="onSubmit(signUpForm.value)"
         class="form py-3 px-4"
       >
         <h4>Register Here -</h4>
         <input
           type="text"
-          #username="ngModel"
+          #username
           name="username"
-          [(ngModel)]="userService.selectedUser.username"
+          ngModel
           placeholder="username"
           required
-          [ngClass]="{
-            'invalid-textbox': signUpForm.submitted && !username.valid
-          }"
         />
         <br />
-        <input
-          type="text"
-          #email="ngModel"
-          [(ngModel)]="userService.selectedUser.email"
-          name="email"
-          placeholder="email"
-        />
+        <input type="text" #email ngModel name="email" placeholder="email" />
         <br />
         <input
           #phone="ngModel"
-          [(ngModel)]="userService.selectedUser.phone"
+          ngModel
           type="number"
           name="phone"
           placeholder="phone"
@@ -44,8 +35,8 @@
         <!-- <input type="number" #otp name="otp" placeholder="otp" /> -->
         <br />
         <input
-          #password="ngModel"
-          [(ngModel)]="userService.selectedUser.password"
+          #password
+          ngModel
           type="password"
           name="password"
           placeholder="password"

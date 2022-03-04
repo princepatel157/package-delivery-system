@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   additionalCost = 0;
   totalCost = 0;
   fileName = null;
+  pickup = '';
 
   onFileSelect(event: any) {
     console.log(event);
