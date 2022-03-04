@@ -59,8 +59,8 @@
                   type="text"
                   placeholder="Address Line 1"
                   class=""
-                  name="Address"
-                  #address
+                  name="pick1"
+                  #pick1
                 />
               </div>
               <div>
@@ -68,17 +68,23 @@
                   ngModel
                   type="text"
                   placeholder="Address Line 2"
-                  name="Address"
-                  #address
+                  name="pick2"
+                  #pick2
                 />
               </div>
               <div class="pin">
                 <div>
                   City:
-                  <input type="text" class="city" name="city" #city ngModel />
+                  <input
+                    type="text"
+                    class="pcity"
+                    name="pcity"
+                    #pcity
+                    ngModel
+                  />
                 </div>
                 <div>
-                  Pincode: <input type="text #pincode" name="pincode" ngModel />
+                  Pincode: <input type="number" #ppin name="ppin" ngModel />
                 </div>
               </div>
             </div>
@@ -92,8 +98,8 @@
                   type="text"
                   placeholder="Address Line 1"
                   class=""
-                  name="Address"
-                  #address
+                  name="drop1"
+                  #drop1
                 />
               </div>
               <div>
@@ -101,17 +107,17 @@
                   ngModel
                   type="text"
                   placeholder="Address Line 2"
-                  name="Address"
-                  #address
+                  name="drop2"
+                  #drop2
                 />
               </div>
               <div class="pin">
                 <div>
                   City:
-                  <input ngModel type="text" class="city" name="city" #city />
+                  <input ngModel type="text" class="dcity" name="dcity" #city />
                 </div>
                 <div>
-                  Pincode: <input ngModel type="text #pincode" name="pincode" />
+                  Pincode: <input ngModel type="number" #dpin name="dpin" />
                 </div>
               </div>
             </div>

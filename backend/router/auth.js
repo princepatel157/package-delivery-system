@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 require("../db/conn");
-const User = require("../models/userSchema");
+const { User, Order } = require("../models/userSchema");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const authenticate = require("../middleware/authenticate");
@@ -66,6 +66,39 @@ router.post("/signin", async (req, res) => {
     } else {
       return res.status(422).json({ error: "please try again" });
     }
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+// order router
+router.post("/order", async (req, res) => {
+  const { email, parcelType, weight, pickup, drop, cost } = req.body;
+  try {
+    const order = new Order({ email, parcelType, weight, pickup, drop, cost });
+    const orderSave = await order.save();
+    if (orderSave) {
+      return res.status(201).json({ message: "order success" });
+    } else {
+      return res.status(500).json({ error: "please try again" });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.get("/gethistory", async (req, res) => {
+  const { username } = req.body;
+  try {
+    const userExist = await Order
+      .find
+      // {
+      //   username: "test11",
+      // },
+      // (err, result) => {
+      //   res.json({ parcelType: result.parcelType, weight: result.weight });
+      // }
+      ();
   } catch (err) {
     console.log(err);
   }

@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
       .then((res) => {
         window.alert('Logged In');
         this.router.navigateByUrl('');
+        localStorage.setItem('username', this.username);
       });
   }
 }

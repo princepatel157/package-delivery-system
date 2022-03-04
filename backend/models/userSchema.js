@@ -18,6 +18,15 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+const orderDetail = new mongoose.Schema({
+  email: String,
+  parcelType: String,
+  weight: Number,
+  pickup: String,
+  drop: String,
+  cost: Number,
+});
+
 userSchema.pre("save", async function (next) {
   if (this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, 12);
@@ -38,4 +47,5 @@ userSchema.methods.generateAuthToken = async function () {
 };
 
 const User = mongoose.model("User", userSchema);
-module.exports = User;
+const Order = mongoose.model("Order", orderDetail);
+module.exports = { User, Order };
