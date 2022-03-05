@@ -5,7 +5,6 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HistoryComponent } from './components/history/history.component';
-import { NgForm } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -32,6 +31,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule, NgForm],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
