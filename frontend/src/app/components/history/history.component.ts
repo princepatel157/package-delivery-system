@@ -8,6 +8,7 @@ import axios from 'axios';
 })
 export class HistoryComponent implements OnInit {
   constructor() {}
+
   parcelType = '';
   weight = '';
   pickAdd = '';
@@ -15,12 +16,18 @@ export class HistoryComponent implements OnInit {
   cost: any;
 
   ngOnInit(): void {
-    axios.get('http://localhost:3000/api/gethistory').then((res) => {
-      this.parcelType = res.data.parcelType;
-      this.weight = res.data.weight;
-      this.pickAdd = res.data.pickAdd;
-      this.dropAdd = res.data.dropAdd;
-      this.cost = res.data.cost;
-    });
+    axios
+      .get('http://localhost:3000/api/gethistory', {
+        params: {
+          usename: localStorage.getItem('username'),
+        },
+      })
+      .then((res) => {
+        this.parcelType = res.data.parcelType;
+        this.weight = res.data.weight;
+        this.pickAdd = res.data.pickup;
+        this.dropAdd = res.data.drop;
+        this.cost = res.data.cost;
+      });
   }
 }

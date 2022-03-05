@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'src/app/shared/user.service';
 import axios from 'axios';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +11,7 @@ import axios from 'axios';
 })
 export class SignupComponent implements OnInit {
   // STEP-4
-  constructor() {}
+  constructor(private router: Router) {}
   username = '';
   email = '';
   phone = '';
@@ -36,6 +37,7 @@ export class SignupComponent implements OnInit {
       })
       .then((res) => {
         window.alert('successfully registerd');
+        this.router.navigateByUrl('login');
       });
   }
 }

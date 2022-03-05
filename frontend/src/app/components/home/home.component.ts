@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
 
     axios
       .post('http://localhost:3000/api/order', {
-        email: localStorage.getItem('username'),
+        username: localStorage.getItem('username'),
         parcelType: this.parcelType,
         weight: this.parcelWeight,
         pickup: this.pickupAdd,
@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
       })
       .then((res) => {
         window.alert('order placed');
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('history');
       });
   }
   ngOnInit(): void {}

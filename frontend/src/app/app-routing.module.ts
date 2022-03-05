@@ -4,8 +4,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { AuthGuard } from './services/auth.guard';
 import { HistoryComponent } from './components/history/history.component';
+import { NgForm } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -32,6 +32,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule, NgForm],
 })
 export class AppRoutingModule {}

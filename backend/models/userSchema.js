@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
 });
 
 const orderDetail = new mongoose.Schema({
-  email: String,
+  username: String,
   parcelType: String,
   weight: Number,
   pickup: String,
@@ -35,16 +35,16 @@ userSchema.pre("save", async function (next) {
 });
 
 //generate token
-userSchema.methods.generateAuthToken = async function () {
-  try {
-    let token = jwt.sign({ _id: this._id }, process.env.SECRET_KEY);
-    this.tokens = this.tokens.concat({ token: token });
-    await this.save();
-    return token;
-  } catch (err) {
-    console.log(err);
-  }
-};
+// userSchema.methods.generateAuthToken = async function () {
+//   try {
+//     let token = jwt.sign({ _id: this._id }, process.env.SECRET_KEY);
+//     this.tokens = this.tokens.concat({ token: token });
+//     await this.save();
+//     return token;
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
 
 const User = mongoose.model("User", userSchema);
 const Order = mongoose.model("Order", orderDetail);

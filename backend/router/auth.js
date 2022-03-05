@@ -49,19 +49,19 @@ router.post("/signin", async (req, res) => {
       const matchPass = await bcrypt.compare(password, userLogin.password);
 
       //set json web-token
-      let token = await userLogin.generateAuthToken();
+      // let token = await userLogin.generateAuthToken();
 
-      console.log("Token: ", token);
-      res.cookie("token", token, {
-        expires: new Date(Date.now() + 2589000000),
-        httpOnly: true,
-      });
+      // console.log("Token: ", token);
+      // res.cookie("token", token, {
+      //   expires: new Date(Date.now() + 2589000000),
+      //   httpOnly: true,
+      // });
 
       if (!matchPass) {
         res.status(400).json({ message: "wrong credential" });
       } else {
         res.json({ message: `${userLogin.username} logged-in succesfully` });
-        console.log(userLogin.name);
+        console.log(userLogin.username);
       }
     } else {
       return res.status(422).json({ error: "please try again" });
@@ -73,9 +73,16 @@ router.post("/signin", async (req, res) => {
 
 // order router
 router.post("/order", async (req, res) => {
-  const { email, parcelType, weight, pickup, drop, cost } = req.body;
+  const { username, parcelType, weight, pickup, drop, cost } = req.body;
   try {
-    const order = new Order({ email, parcelType, weight, pickup, drop, cost });
+    const order = new Order({
+      username,
+      parcelType,
+      weight,
+      pickup,
+      drop,
+      cost,
+    });
     const orderSave = await order.save();
     if (orderSave) {
       return res.status(201).json({ message: "order success" });
@@ -88,17 +95,19 @@ router.post("/order", async (req, res) => {
 });
 
 router.get("/gethistory", async (req, res) => {
-  const { username } = req.body;
+  const username = req.query.usename;
   try {
-    const userExist = await Order
-      .find
-      // {
-      //   username: "test11",
-      // },
-      // (err, result) => {
-      //   res.json({ parcelType: result.parcelType, weight: result.weight });
-      // }
-      ();
+    const userExist = await Order.findOne({
+      username: username,
+    });
+    console.log(username);
+    res.json({
+      parcelType: userExist.parcelType,
+      weight: userExist.weight,
+      pickup: userExist.pickup,
+      drop: userExist.drop,
+      cost: userExist.cost,
+    });
   } catch (err) {
     console.log(err);
   }
