@@ -38,6 +38,9 @@ export class SignupComponent implements OnInit {
       .then((res) => {
         window.alert('successfully registerd');
         this.router.navigateByUrl('login');
+      })
+      .catch((err) => {
+        window.alert(err.message);
       });
   }
 }

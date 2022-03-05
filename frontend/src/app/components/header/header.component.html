@@ -1,33 +1,88 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <h2>
-        <a class="navbar-brand" routerLink="login">Delhivery</a>
-      </h2>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" routerLink="login">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="signup">Signup</a>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" routerLink="history">Orders</a>
-          </li> -->
-        </ul>
+<div *ngIf="username != null; then show; else loginnav"></div>
+
+<ng-template #show>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <h2>
+          <a class="navbar-brand" routerLink="login">Delhivery</a>
+        </h2>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <!-- <li class="nav-item">
+              <a class="nav-link active" routerLink="login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="signup">Signup</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link">Hello {{ username }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="history">Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="logout()" routerLink="login"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-</header>
+    </nav>
+  </header>
+</ng-template>
+
+<!-- loginnav -->
+<ng-template #loginnav>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <h2>
+          <a class="navbar-brand" routerLink="login">Delhivery</a>
+        </h2>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="signup">Signup</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" routerLink="history">Orders</a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+</ng-template>

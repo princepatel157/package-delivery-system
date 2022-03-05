@@ -15,14 +15,14 @@ router.get("/", (req, res) => {
 router.post("/register", async (req, res) => {
   const { username, email, phone, password } = req.body;
   if (!username || !email || !phone || !password) {
-    return res.status(422).json({ error: "all fields required" });
+    return res.status(422).json({ message: "all fields required" });
   }
   try {
     const userExist = await User.findOne({
       email: email,
     });
     if (userExist) {
-      return res.status(422).json({ error: "user Exist" });
+      return res.status(401).json({ error: "user Exist" });
     }
     const user = new User({ username, email, phone, password });
     const userRegister = await user.save();

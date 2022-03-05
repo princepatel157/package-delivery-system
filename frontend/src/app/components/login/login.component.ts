@@ -31,6 +31,9 @@ export class LoginComponent implements OnInit {
         window.alert('Logged In');
         this.router.navigateByUrl('');
         localStorage.setItem('username', this.username);
+      })
+      .catch((err) => {
+        window.alert('incorrect username/password');
       });
   }
 }
