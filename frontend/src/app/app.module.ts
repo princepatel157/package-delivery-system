@@ -15,6 +15,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './shared/user.service';
 import { HistoryComponent } from './components/history/history.component';
+import { VerifyComponent } from './components/verify/verify.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HistoryComponent } from './components/history/history.component';
     FooterComponent,
     CheckoutComponent,
     HistoryComponent,
+    VerifyComponent,
   ],
   imports: [
     BrowserModule,

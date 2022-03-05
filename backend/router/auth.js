@@ -7,8 +7,23 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const authenticate = require("../middleware/authenticate");
 
+const client = require("twilio")(
+  "ACe43d09d8b78e78f9d4fc05e104872432",
+  "d3204cbef7076528f31e9e9ad6a36a49",
+  {
+    lazyLoading: true,
+  }
+);
+
 router.get("/", (req, res) => {
   res.send("router home page");
+});
+
+// otp verify
+router.get("/sms", (req, res) => {
+  const phone = req.query.phone;
+  const otp = req.query.otp;
+  sendTextMessage(phone, otp);
 });
 
 // register router page
@@ -118,5 +133,18 @@ router.get("/auth", authenticate, (req, res) => {
   res.send("middleware");
   res.send(req.rootUser);
 });
+
+function sendTextMessage(phone, otp) {
+  // res.send("sms page");
+  client.messages
+    .create({
+      body: "Your verification code is: " + otp,
+      to: "+91" + phone,
+      from: "+1 901 446 0305",
+    })
+    .then((message) => console.log(message))
+    // here you can implement your fallback code
+    .catch((error) => console.log(error));
+}
 
 module.exports = router;

@@ -1,0 +1,23 @@
+<section class="container-fluid sec-1">
+  <div class="row">
+    <!-- right column for sign-up -->
+    <div class="container p-2 col-xs-12 right">
+      <!-- form (ngSubmit)="onSubmit(signInForm.value)" -->
+      <form #signInForm="ngForm" class="form py-3 px-4">
+        <h4 class="mb-3">Verify OTP -</h4>
+        <input
+          type="number"
+          #phone
+          ngModel
+          name="phone"
+          placeholder="Phone No. "
+        />
+        <p (click)="sendBtn(phone.value)" class="btn px-1">Send</p>
+        <br />
+        <input type="number" #otp ngModel name="otp" placeholder="OTP " />
+        <br />
+        <button (click)="submitOtp(otp.value)" class="px-2 mt-4">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>

@@ -5,6 +5,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HistoryComponent } from './components/history/history.component';
+import { VerifyComponent } from './components/verify/verify.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'history',
     component: HistoryComponent,
+  },
+  {
+    path: 'verify',
+    component: VerifyComponent,
   },
 ];
 

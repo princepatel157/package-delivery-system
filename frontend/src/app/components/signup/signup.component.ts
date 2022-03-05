@@ -36,8 +36,7 @@ export class SignupComponent implements OnInit {
         password: this.password,
       })
       .then((res) => {
-        window.alert('successfully registerd');
-        this.router.navigateByUrl('login');
+        this.router.navigateByUrl('verify');
       })
       .catch((err) => {
         window.alert(err.message);
