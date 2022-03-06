@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   // check coupon code and apply
   checkCoupon(val: any) {
     if (val == 'FLAT10') {
-      this.ccoupon = 'Flat 10% off';
+      this.ccoupon = 'Coupon Applied';
       this.basePrice = this.basePrice - 10;
     } else {
       this.ccoupon = 'Invalid Coupon';

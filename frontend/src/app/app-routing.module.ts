@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HistoryComponent } from './components/history/history.component';
 import { VerifyComponent } from './components/verify/verify.component';
+import { OrderComponent } from './components/order/order.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent,
+  },
+  {
+    path: 'order',
+    component: OrderComponent,
   },
   {
     path: 'checkout',

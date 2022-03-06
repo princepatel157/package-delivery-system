@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { UserService } from './shared/user.service';
 import { HistoryComponent } from './components/history/history.component';
 import { VerifyComponent } from './components/verify/verify.component';
+import { OrderComponent } from './components/order/order.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { VerifyComponent } from './components/verify/verify.component';
     CheckoutComponent,
     HistoryComponent,
     VerifyComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
