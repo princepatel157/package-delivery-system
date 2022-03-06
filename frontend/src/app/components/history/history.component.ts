@@ -27,7 +27,6 @@ export class HistoryComponent implements OnInit {
         },
       })
       .then((res) => {
-        this.parcelType = res.data.orders[3].parcelType;
         this.dataArray = res.data.orders;
         console.log(this.dataArray);
       });
