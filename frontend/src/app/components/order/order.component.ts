@@ -14,6 +14,7 @@ export class OrderComponent implements OnInit {
   pickAdd = '';
   dropAdd = '';
   cost: any;
+  trackingId: any;
 
   ngOnInit(): void {
     axios
@@ -32,8 +33,17 @@ export class OrderComponent implements OnInit {
   }
 
   checkout() {
+    const trackingNumber = (pr = 'UB775', su = 'HK') => {
+      for (let i = 0; i < 5; i++) pr += ~~(Math.random() * 10);
+      return pr + su;
+    };
+    this.trackingId = trackingNumber();
+    // Example changing prefix and suffix:
+    console.log(this.trackingId);
+
     axios
       .post('http://localhost:3000/api/checkout', {
+        trackingId: this.trackingId,
         username: localStorage.getItem('username'),
         parcelType: this.parcelType,
         weight: this.weight,

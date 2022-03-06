@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema({
   },
   history: [
     {
+      trackingId: String,
       parcelType: String,
       weight: Number,
       pickup: String,
@@ -44,6 +45,7 @@ userSchema.pre("save", async function (next) {
 });
 
 userSchema.methods.addOrder = async function (
+  trackingId,
   parcelType,
   weight,
   pickup,
@@ -52,6 +54,7 @@ userSchema.methods.addOrder = async function (
 ) {
   try {
     this.history = this.history.concat({
+      trackingId,
       parcelType,
       weight,
       pickup,
