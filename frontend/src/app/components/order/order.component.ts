@@ -48,5 +48,9 @@ export class OrderComponent implements OnInit {
       .catch((err) => {
         window.alert('not able to proceed');
       });
+
+    axios.post('http://localhost:3000/api/deleteOrder', {
+      username: localStorage.getItem('username'),
+    });
   }
 }

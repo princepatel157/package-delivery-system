@@ -84,7 +84,7 @@ export class HomeComponent implements OnInit {
       })
       .then((res) => {
         window.alert('order processed');
-        // this.router.navigateByUrl('history');
+        this.router.navigateByUrl('order');
       });
   }
   ngOnInit(): void {}

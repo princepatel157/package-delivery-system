@@ -112,6 +112,16 @@ router.get("/order", async (req, res) => {
   }
 });
 
+// delete order
+router.post("/deleteOrder", async (req, res) => {
+  const { username } = req.body;
+  try {
+    const deleteOrder = await Order.deleteMany({ username: username });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 // checkout router
 router.post("/checkout", async (req, res) => {
   const { username, parcelType, weight, pickup, drop, cost } = req.body;
@@ -149,12 +159,6 @@ router.get("/history", async (req, res) => {
     console.log(err);
   }
 });
-
-// middleware
-// router.get("/auth", authenticate, (req, res) => {
-//   res.send("middleware");
-//   res.send(req.rootUser);
-// });
 
 // otp verify
 router.get("/sms", (req, res) => {
