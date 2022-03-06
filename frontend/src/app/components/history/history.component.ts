@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NGB_DATEPICKER_CALENDAR_FACTORY } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar';
+import { Obj } from '@popperjs/core';
 import axios from 'axios';
 
 @Component({
@@ -15,19 +17,19 @@ export class HistoryComponent implements OnInit {
   dropAdd = '';
   cost: any;
 
+  dataArray: any;
+
   ngOnInit(): void {
     axios
-      .get('http://localhost:3000/api/gethistory', {
+      .get('http://localhost:3000/api/history', {
         params: {
           usename: localStorage.getItem('username'),
         },
       })
       .then((res) => {
-        this.parcelType = res.data.parcelType;
-        this.weight = res.data.weight;
-        this.pickAdd = res.data.pickup;
-        this.dropAdd = res.data.drop;
-        this.cost = res.data.cost;
+        this.parcelType = res.data.orders[3].parcelType;
+        this.dataArray = res.data.orders;
+        console.log(this.dataArray);
       });
   }
 }

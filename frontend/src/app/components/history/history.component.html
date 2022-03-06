@@ -10,13 +10,14 @@
           <th scope="col">Charges</th>
         </tr>
       </thead>
+
       <tbody>
-        <tr>
-          <td>{{ parcelType }}</td>
-          <td>{{ weight }}</td>
-          <td>{{ pickAdd }}</td>
-          <td>{{ dropAdd }}</td>
-          <td>{{ cost }}</td>
+        <tr *ngFor="let item of dataArray">
+          <td>{{ item.parcelType }}</td>
+          <td>{{ item.weight }}</td>
+          <td>{{ item.pickup }}</td>
+          <td>{{ item.drop }}</td>
+          <td>{{ item.cost }}</td>
         </tr>
       </tbody>
     </table>

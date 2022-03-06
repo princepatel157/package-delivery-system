@@ -55,16 +55,6 @@ router.post("/signin", async (req, res) => {
     if (userLogin) {
       // check password
       const matchPass = await bcrypt.compare(password, userLogin.password);
-
-      //set json web-token
-      // let token = await userLogin.generateAuthToken();
-
-      // console.log("Token: ", token);
-      // res.cookie("token", token, {
-      //   expires: new Date(Date.now() + 2589000000),
-      //   httpOnly: true,
-      // });
-
       if (!matchPass) {
         res.status(400).json({ message: "wrong credential" });
       } else {
@@ -102,7 +92,8 @@ router.post("/order", async (req, res) => {
   }
 });
 
-router.get("/gethistory", async (req, res) => {
+// order router
+router.get("/order", async (req, res) => {
   const username = req.query.usename;
   try {
     const userExist = await Order.findOne({
@@ -121,11 +112,49 @@ router.get("/gethistory", async (req, res) => {
   }
 });
 
-// middleware
-router.get("/auth", authenticate, (req, res) => {
-  res.send("middleware");
-  res.send(req.rootUser);
+// checkout router
+router.post("/checkout", async (req, res) => {
+  const { username, parcelType, weight, pickup, drop, cost } = req.body;
+  try {
+    const findUser = await User.findOne({ username: username });
+    if (findUser) {
+      const checkOut = await findUser.addOrder(
+        parcelType,
+        weight,
+        pickup,
+        drop,
+        cost
+      );
+      await findUser.save();
+      res.status(201).json({ message: "order placed" });
+    }
+  } catch (err) {
+    console.log(err);
+  }
 });
+
+// history router
+router.get("/history", async (req, res) => {
+  const username = req.query.usename;
+  try {
+    const userExist = await User.findOne({
+      username: username,
+    });
+    // console.log(username);
+    // console.log(userExist.history);
+    res.json({
+      orders: userExist.history,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+// middleware
+// router.get("/auth", authenticate, (req, res) => {
+//   res.send("middleware");
+//   res.send(req.rootUser);
+// });
 
 // otp verify
 router.get("/sms", (req, res) => {

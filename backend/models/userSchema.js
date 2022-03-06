@@ -16,6 +16,15 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  history: [
+    {
+      parcelType: String,
+      weight: Number,
+      pickup: String,
+      drop: String,
+      cost: Number,
+    },
+  ],
 });
 
 const orderDetail = new mongoose.Schema({
@@ -34,17 +43,27 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-//generate token
-// userSchema.methods.generateAuthToken = async function () {
-//   try {
-//     let token = jwt.sign({ _id: this._id }, process.env.SECRET_KEY);
-//     this.tokens = this.tokens.concat({ token: token });
-//     await this.save();
-//     return token;
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+userSchema.methods.addOrder = async function (
+  parcelType,
+  weight,
+  pickup,
+  drop,
+  cost
+) {
+  try {
+    this.history = this.history.concat({
+      parcelType,
+      weight,
+      pickup,
+      drop,
+      cost,
+    });
+    await this.save();
+    return this.history;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const User = mongoose.model("User", userSchema);
 const Order = mongoose.model("Order", orderDetail);

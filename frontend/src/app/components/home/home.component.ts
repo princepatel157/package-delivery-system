@@ -83,8 +83,8 @@ export class HomeComponent implements OnInit {
         cost: this.totalCost,
       })
       .then((res) => {
-        window.alert('order placed');
-        this.router.navigateByUrl('history');
+        window.alert('order processed');
+        // this.router.navigateByUrl('history');
       });
   }
   ngOnInit(): void {}
