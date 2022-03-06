@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NGB_DATEPICKER_CALENDAR_FACTORY } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar';
 import { Obj } from '@popperjs/core';
 import axios from 'axios';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-history',
@@ -9,7 +10,7 @@ import axios from 'axios';
   styleUrls: ['./history.component.scss'],
 })
 export class HistoryComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   parcelType = '';
   weight = '';
@@ -27,9 +28,11 @@ export class HistoryComponent implements OnInit {
         },
       })
       .then((res) => {
-        this.parcelType = res.data.orders[3].parcelType;
         this.dataArray = res.data.orders;
         console.log(this.dataArray);
       });
+  }
+  placeOrder() {
+    this.router.navigateByUrl('');
   }
 }
