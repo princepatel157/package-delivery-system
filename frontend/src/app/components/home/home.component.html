@@ -38,6 +38,8 @@
                 <input type="text" name="dimention" #dimention ngModel />
               </div>
             </div>
+
+            <!-- img -->
             <div class="form-group">
               Upload Image:
               <!-- <button class="btn btn-primary">upload</button> -->
@@ -123,6 +125,20 @@
                 </div>
               </div>
             </div>
+            <br />
+
+            <!-- coupon  -->
+            <div class="form-group">
+              Coupon:
+              <!-- <button class="btn btn-primary">upload</button> -->
+              <input class="upload-btn" type="text" #coupon name="coupon" />
+              <a (click)="checkCoupon(coupon.value)" class="px-2 mr-2"
+                >check
+              </a>
+              <span>{{ ccoupon }}</span>
+            </div>
+
+            <!-- buttons -->
             <div class="proceed">
               <button
                 (click)="calCost(ptype.value, weight.value)"
@@ -135,6 +151,8 @@
                 Proceed
               </button>
             </div>
+            <br />
+            <br />
           </form>
         </div>
       </div>
