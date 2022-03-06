@@ -19,10 +19,21 @@ export class HomeComponent implements OnInit {
   dimention = '';
   pickupAdd: any;
   dropAdd: any;
+  ccoupon: string = '';
 
   onFileSelect(event: any) {
     console.log(event);
     this.fileName = event.target.files[0]['name'];
+  }
+
+  // check coupon code and apply
+  checkCoupon(val: any) {
+    if (val == 'FLAT10') {
+      this.ccoupon = 'Flat 10% off';
+      this.basePrice = this.basePrice - 10;
+    } else {
+      this.ccoupon = 'Invalid Coupon';
+    }
   }
 
   calCost(ptype: string, weight: any) {
