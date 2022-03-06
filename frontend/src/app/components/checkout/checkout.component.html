@@ -1,0 +1,33 @@
+<section class="container">
+  <div class="row">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Order Type</th>
+          <th scope="col">weight</th>
+          <th scope="col">Pick Address</th>
+          <th scope="col">Drop Address</th>
+          <th scope="col">Charges</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ parcelType }}</td>
+          <td>{{ weight }}</td>
+          <td>{{ pickAdd }}</td>
+          <td>{{ dropAdd }}</td>
+          <td>{{ cost }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- checkout button -->
+  <div class="container checkoutBtn">
+    <div class="row">
+      <div class="col">
+        <button>Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+</section>

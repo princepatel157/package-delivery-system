@@ -18,8 +18,8 @@ export class VerifyComponent implements OnInit {
   sendBtn(val: any) {
     this.phone = val;
     this.token = Math.floor(Math.random() * 10000);
-    // console.log(this.token);
-    // console.log(this.phone);
+    console.log(this.token);
+    console.log(this.phone);
 
     axios.get('http://localhost:3000/api/sms', {
       params: {
