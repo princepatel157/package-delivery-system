@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class HistoryComponent implements OnInit {
   constructor(private router: Router) {}
-
+  trackingId = '';
   parcelType = '';
   weight = '';
   pickAdd = '';

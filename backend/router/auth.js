@@ -124,11 +124,13 @@ router.post("/deleteOrder", async (req, res) => {
 
 // checkout router
 router.post("/checkout", async (req, res) => {
-  const { username, parcelType, weight, pickup, drop, cost } = req.body;
+  const { trackingId, username, parcelType, weight, pickup, drop, cost } =
+    req.body;
   try {
     const findUser = await User.findOne({ username: username });
     if (findUser) {
       const checkOut = await findUser.addOrder(
+        trackingId,
         parcelType,
         weight,
         pickup,
