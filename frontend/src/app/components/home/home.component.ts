@@ -75,21 +75,23 @@ export class HomeComponent implements OnInit {
 
     // checking validation
     if (this.parcelType == '') {
-      window.alert('all star fields required');
-    } else if (this.parcelWeight == null) {
-      window.alert('all star fields required');
+      window.alert('Please Enter Parcel Type');
+    } else if (this.parcelWeight == '') {
+      window.alert('Please Enter Parcel Weight');
     } else if (form.pick1 == '') {
-      window.alert('all star fields required');
+      window.alert('Please Enter Pickup Address');
     } else if (form.drop1 == '') {
-      window.alert('all star fields required');
+      window.alert('Please Enter Drop Addres');
     } else if (form.pcity == '') {
-      window.alert('all star fields required');
+      window.alert('Please Enter Pickup City');
     } else if (form.ppin == null) {
-      window.alert('all star fields required');
+      window.alert('Please Enter Pickup Pin');
     } else if (form.dcity == '') {
-      window.alert('all star fields required');
+      window.alert('Please Enter Drop City');
     } else if (form.dpin == null) {
-      window.alert('all star fields required');
+      window.alert('Please Enter Drop Pin');
+    } else if (this.totalCost == 0) {
+      window.alert('Please Calculate Price');
     } else {
       axios.post('http://localhost:3000/api/deleteOrder', {
         username: localStorage.getItem('username'),
