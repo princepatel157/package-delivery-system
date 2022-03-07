@@ -23,6 +23,7 @@
                 <option value="glass-item">Glass Item</option>
                 <option value="documents">Documents</option>
               </select>
+              <sup class="star">*</sup>
             </div>
 
             <!-- parcel dimention and weight -->
@@ -30,10 +31,12 @@
               <div>
                 Weight(in kg):
                 <input type="number" name="weight" #weight ngModel />
+                <sup class="star">*</sup>
               </div>
               <div>
                 Dimention(lxb):
                 <input type="text" name="dimention" #dimention ngModel />
+                <sup class="star">*</sup>
               </div>
             </div>
 
@@ -59,7 +62,7 @@
                 <input
                   ngModel
                   type="text"
-                  placeholder="Address Line 1"
+                  placeholder="Address Line 1 *"
                   class=""
                   name="pick1"
                   #pick1
@@ -84,9 +87,13 @@
                     #pcity
                     ngModel
                   />
+                  <sup class="star">*</sup>
                 </div>
                 <div>
-                  Pincode: <input type="number" #ppin name="ppin" ngModel />
+                  Pincode: <input type="number" #ppin name="ppin" ngModel /><sup
+                    class="star"
+                    >*</sup
+                  >
                 </div>
               </div>
             </div>
@@ -98,7 +105,7 @@
                 <input
                   ngModel
                   type="text"
-                  placeholder="Address Line 1"
+                  placeholder="Address Line 1 *"
                   class=""
                   name="drop1"
                   #drop1
@@ -116,10 +123,19 @@
               <div class="pin">
                 <div>
                   City:
-                  <input ngModel type="text" class="dcity" name="dcity" #city />
+                  <input
+                    ngModel
+                    type="text"
+                    class="dcity"
+                    name="dcity"
+                    #city
+                  /><sup class="star">*</sup>
                 </div>
                 <div>
-                  Pincode: <input ngModel type="number" #dpin name="dpin" />
+                  Pincode: <input ngModel type="number" #dpin name="dpin" /><sup
+                    class="star"
+                    >*</sup
+                  >
                 </div>
               </div>
             </div>

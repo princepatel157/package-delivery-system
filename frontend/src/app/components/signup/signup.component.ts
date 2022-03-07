@@ -23,19 +23,28 @@ export class SignupComponent implements OnInit {
     this.email = val.email;
     this.phone = val.phone;
     this.password = val.password;
-
-    axios
-      .post('http://localhost:3000/api/register', {
-        username: this.username,
-        email: this.email,
-        phone: this.phone,
-        password: this.password,
-      })
-      .then((res) => {
-        this.router.navigateByUrl('verify');
-      })
-      .catch((err) => {
-        window.alert(err.message);
-      });
+    if (this.username == '') {
+      window.alert('all fields required');
+    } else if (this.email == '') {
+      window.alert('all fields required');
+    } else if (this.phone == null) {
+      window.alert('all fields required');
+    } else if (this.password == '') {
+      window.alert('all fields required');
+    } else {
+      axios
+        .post('http://localhost:3000/api/register', {
+          username: this.username,
+          email: this.email,
+          phone: this.phone,
+          password: this.password,
+        })
+        .then((res) => {
+          this.router.navigateByUrl('verify');
+        })
+        .catch((err) => {
+          window.alert('user Exist');
+        });
+    }
   }
 }

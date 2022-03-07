@@ -8,7 +8,7 @@ const bcrypt = require("bcryptjs");
 // twilio connection
 const client = require("twilio")(
   "ACe43d09d8b78e78f9d4fc05e104872432",
-  "b867e43eaa2fd540f0d7e5ae22398f4c",
+  "8c4c0f609312e3e63213d5c6fba7e89a",
   {
     lazyLoading: true,
   }

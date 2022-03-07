@@ -73,19 +73,42 @@ export class HomeComponent implements OnInit {
     console.log(this.pickupAdd);
     console.log(this.dropAdd);
 
-    axios
-      .post('http://localhost:3000/api/order', {
+    // checking validation
+    if (this.parcelType == '') {
+      window.alert('all star fields required');
+    } else if (this.parcelWeight == null) {
+      window.alert('all star fields required');
+    } else if (form.pick1 == '') {
+      window.alert('all star fields required');
+    } else if (form.drop1 == '') {
+      window.alert('all star fields required');
+    } else if (form.pcity == '') {
+      window.alert('all star fields required');
+    } else if (form.ppin == null) {
+      window.alert('all star fields required');
+    } else if (form.dcity == '') {
+      window.alert('all star fields required');
+    } else if (form.dpin == null) {
+      window.alert('all star fields required');
+    } else {
+      axios.post('http://localhost:3000/api/deleteOrder', {
         username: localStorage.getItem('username'),
-        parcelType: this.parcelType,
-        weight: this.parcelWeight,
-        pickup: this.pickupAdd,
-        drop: this.dropAdd,
-        cost: this.totalCost,
-      })
-      .then((res) => {
-        window.alert('order processed');
-        this.router.navigateByUrl('order');
       });
+
+      axios
+        .post('http://localhost:3000/api/order', {
+          username: localStorage.getItem('username'),
+          parcelType: this.parcelType,
+          weight: this.parcelWeight,
+          pickup: this.pickupAdd,
+          drop: this.dropAdd,
+          cost: this.totalCost,
+        })
+        .then((res) => {
+          window.alert('order processed');
+          this.router.navigateByUrl('order');
+        });
+    }
   }
   ngOnInit(): void {}
 }

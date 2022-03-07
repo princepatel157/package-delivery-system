@@ -19,19 +19,24 @@ export class LoginComponent implements OnInit {
   onSubmit(val: any) {
     this.username = val.username;
     this.password = val.password;
-
-    axios
-      .post('http://localhost:3000/api/signin', {
-        username: this.username,
-        password: this.password,
-      })
-      .then((res) => {
-        window.alert('Logged In');
-        this.router.navigateByUrl('');
-        localStorage.setItem('username', this.username);
-      })
-      .catch((err) => {
-        window.alert('incorrect username/password');
-      });
+    if (this.username == '') {
+      window.alert('all fields required');
+    } else if (this.password == '') {
+      window.alert('all fields required');
+    } else {
+      axios
+        .post('http://localhost:3000/api/signin', {
+          username: this.username,
+          password: this.password,
+        })
+        .then((res) => {
+          window.alert('Logged In');
+          this.router.navigateByUrl('');
+          localStorage.setItem('username', this.username);
+        })
+        .catch((err) => {
+          window.alert('incorrect username/password');
+        });
+    }
   }
 }
