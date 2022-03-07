@@ -27,7 +27,7 @@
 
 ## Order Confirmation
 
-<img src="./img/order.JPG">
+<img src="./img/order1.JPG">
 
 ## Checkout
 
