@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { UserService } from 'src/app/shared/user.service';
 import { Router } from '@angular/router';
 import axios from 'axios';
 

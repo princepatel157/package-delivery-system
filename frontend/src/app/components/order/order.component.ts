@@ -38,7 +38,6 @@ export class OrderComponent implements OnInit {
       return pr + su;
     };
     this.trackingId = trackingNumber();
-    // Example changing prefix and suffix:
     console.log(this.trackingId);
 
     axios

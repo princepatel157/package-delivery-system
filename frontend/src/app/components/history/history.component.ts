@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NGB_DATEPICKER_CALENDAR_FACTORY } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar';
-import { Obj } from '@popperjs/core';
 import axios from 'axios';
 import { Router } from '@angular/router';
 
